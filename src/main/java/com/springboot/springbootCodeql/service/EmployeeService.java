@@ -58,8 +58,8 @@ public class EmployeeService {
     }
 
     // VULNERABLE 2: Command Injection
-    public String runSystemCommand(String userInput) throws IOException {
-        Process process = Runtime.getRuntime().exec("ping -c 1 " + userInput);
+    public String runSystemCommand(String input) throws IOException {
+        Process process = Runtime.getRuntime().exec("ping -c 1 " + input);
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         StringBuilder output = new StringBuilder();
         String line;
