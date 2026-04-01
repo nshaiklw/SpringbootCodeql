@@ -52,8 +52,8 @@ public class EmployeeService {
 
     // VULNERABLE 1: SQL Injection
     @SuppressWarnings("unchecked")
-    public List<Employee> searchByName(String name) {
-        String query = "SELECT * FROM employees WHERE first_name = '" + name + "'";
+    public List<Employee> searchByName(String firstName) {
+        String query = "SELECT * FROM employees WHERE first_name = '" + firstName + "'";
         return entityManager.createNativeQuery(query, Employee.class).getResultList();
     }
 
